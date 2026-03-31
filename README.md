@@ -1,73 +1,175 @@
-# React + TypeScript + Vite
+# Gifs App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicacion web construida con React, TypeScript y Vite para buscar gifs en tiempo real consumiendo la API de Giphy. El proyecto permite escribir una busqueda, obtener resultados rapidamente y volver a consultar terminos anteriores con una experiencia simple y directa.
 
-Currently, two official plugins are available:
+## Descripcion
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+La aplicacion incluye:
 
-## React Compiler
+- Busqueda de gifs por texto.
+- Consulta automatica con debounce mientras el usuario escribe.
+- Historial de busquedas recientes.
+- Reutilizacion de resultados en memoria para evitar consultas repetidas.
+- Pruebas unitarias para componentes, acciones y configuracion de la API.
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+## Tecnologias utilizadas
 
-## Expanding the ESLint configuration
+- React 19
+- TypeScript
+- Vite
+- Axios
+- Vitest
+- Testing Library
+- ESLint
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Como funciona
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+La app sigue este flujo:
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+1. El usuario escribe un termino en la barra de busqueda.
+2. `SearchBar` dispara la consulta al presionar Enter, al hacer clic en el boton o despues de un debounce de 700 ms.
+3. `useGifs` administra el estado de resultados, historial y cache en memoria.
+4. `getGifsByQuery` consulta la API de Giphy y transforma la respuesta.
+5. `GifsList` renderiza los gifs en una grilla responsive.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Estructura del proyecto
+
+```text
+src/
+|-- gifs/
+|   |-- actions/       # Acciones que consumen y transforman datos
+|   |-- api/           # Configuracion de Axios para Giphy
+|   |-- components/    # Componentes de la funcionalidad de gifs
+|   |-- hooks/         # Hook principal del flujo de busqueda
+|   |-- interfaces/    # Tipos e interfaces
+|-- shared/
+|   |-- components/    # Componentes reutilizables
+|-- mock-data/         # Datos de apoyo para desarrollo/pruebas
+|-- GifsApp.tsx        # Componente principal
+|-- main.tsx           # Punto de entrada
+tests/
+|-- mocks/             # Respuestas simuladas para pruebas
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Requisitos previos
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- Node.js 18 o superior
+- npm
+- Una API key de Giphy
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Variables de entorno
+
+Este proyecto necesita una clave de Giphy para funcionar.
+
+1. Crea un archivo `.env` en la raiz del proyecto.
+2. Usa como base el archivo `.env.template`.
+3. Define la siguiente variable:
+
+```env
+VITE_GIPKY_API_KEY=tu_api_key_aqui
 ```
+
+Importante: el nombre de la variable actualmente usado por el codigo es `VITE_GIPKY_API_KEY`.
+
+## Instalacion
+
+```bash
+npm install
+```
+
+## Ejecucion en desarrollo
+
+```bash
+npm run dev
+```
+
+Por defecto, Vite levantara la aplicacion en una URL local similar a:
+
+```text
+http://localhost:5173
+```
+
+## Scripts disponibles
+
+```bash
+npm run dev
+```
+
+Inicia el servidor de desarrollo.
+
+```bash
+npm run build
+```
+
+Genera la version de produccion en la carpeta `dist/`.
+
+```bash
+npm run preview
+```
+
+Sirve localmente la build de produccion.
+
+```bash
+npm run lint
+```
+
+Ejecuta las reglas de ESLint.
+
+```bash
+npm run test
+```
+
+Inicia Vitest en modo interactivo.
+
+```bash
+npm run test -- --run
+```
+
+Ejecuta la suite una sola vez.
+
+```bash
+npm run test:ui
+```
+
+Abre la interfaz visual de Vitest.
+
+```bash
+npm run coverage
+```
+
+Genera el reporte de cobertura.
+
+## Pruebas incluidas
+
+Actualmente el proyecto prueba:
+
+- El render del componente principal.
+- El comportamiento del componente `CustomHeader`.
+- La configuracion base de la instancia Axios para Giphy.
+- La transformacion de datos realizada por `getGifsByQuery`.
+
+Estado verificado del proyecto:
+
+- `npm run test -- --run`: correcto
+- `npm run build`: correcto
+
+## Interfaz principal
+
+La pantalla principal muestra:
+
+- Un encabezado con titulo y descripcion.
+- Una barra de busqueda con boton de accion.
+- Una lista de busquedas previas reutilizables.
+- Una grilla responsive con los gifs encontrados.
+
+## Posibles mejoras
+
+- Mostrar estados de carga y error.
+- Agregar paginacion o infinite scroll.
+- Persistir el historial en `localStorage`.
+- Mejorar accesibilidad y feedback visual.
+- Agregar pruebas para `SearchBar`, `PreviousSearches` y `useGifs`.
+
+## Autor
+
+Proyecto desarrollado como practica de React + TypeScript consumiendo la API de Giphy.
