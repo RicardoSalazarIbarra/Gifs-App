@@ -6,7 +6,7 @@ import { useGifs } from "./gifs/hooks/useGifs"
 
 export const GifsApp = () => {
 
-  const { handleSearch, handleTermClicked, previousterms, gifs } = useGifs()
+  const { handleSearch, handleTermClicked, previousTerms, gifs } = useGifs()
 
   return (
     <>
@@ -17,7 +17,7 @@ export const GifsApp = () => {
       <SearchBar placeholder="Busca lo que quieras" onQuery={handleSearch} />
 
       {/* Búsquedas previas */}
-      <PreviousSearches searches={previousterms} onLabelClick={handleTermClicked} />
+      <PreviousSearches searches={previousTerms} onLabelClick={handleTermClicked} />
 
       {/* Gifs */}
       <GifsList gifs={gifs} />
