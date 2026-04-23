@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`SearchaBar > should render searchbar correctly 1`] = `
+exports[`SearchBar > should render searchbar correctly 1`] = `
 <div>
   <div
     class="search-container"
