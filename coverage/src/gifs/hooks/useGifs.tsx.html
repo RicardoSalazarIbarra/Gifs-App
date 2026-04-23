@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">33.33% </span>
+                <span class="strong">90.9% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>7/21</span>
+                <span class='fraction'>20/22</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">66.66% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/6</span>
+                <span class='fraction'>4/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">33.33% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/3</span>
+                <span class='fraction'>3/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">36.84% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>7/19</span>
+                <span class='fraction'>20/20</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -107,44 +107,46 @@
 <a name='L42'></a><a href='#L42'>42</a>
 <a name='L43'></a><a href='#L43'>43</a>
 <a name='L44'></a><a href='#L44'>44</a>
-<a name='L45'></a><a href='#L45'>45</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L45'></a><a href='#L45'>45</a>
+<a name='L46'></a><a href='#L46'>46</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">19x</span>
+<span class="cline-any cline-yes">19x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">19x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">19x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">19x</span>
+<span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">19x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -157,41 +159,42 @@ import type { Gif } from "../interfaces/gif.interface"
 &nbsp;
 export const useGifs = () =&gt; {
   const [gifs, setGifs] = useState&lt;Gif[]&gt;([])
-  const [previousterms, setPreviousterms] = useState&lt;string[]&gt;([])
+  const [previousTerms, setPreviousTerms] = useState&lt;string[]&gt;([])
 &nbsp;
   const gifsCache = useRef&lt;Record&lt;string, Gif[]&gt;&gt;({})
 &nbsp;
-  const handleTermClicked = <span class="fstat-no" title="function not covered" >async (t</span>erm: string) =&gt; {
-<span class="cstat-no" title="statement not covered" >    if (gifsCache.current[term]) {</span>
-<span class="cstat-no" title="statement not covered" >      setGifs(gifsCache.current[term])</span>
-<span class="cstat-no" title="statement not covered" >      return</span>
+  const handleTermClicked = async (term: string) =&gt; {
+    if (gifsCache.current[term]) {
+      setGifs(gifsCache.current[term])
+      return
     }
 &nbsp;
-    const gifs = <span class="cstat-no" title="statement not covered" >await getGifsByQuery(term)</span>
-<span class="cstat-no" title="statement not covered" >    setGifs(gifs)</span>
+    const gifs = await getGifsByQuery(term)
+    setGifs(gifs)
+    gifsCache.current[term] = gifs
   }
 &nbsp;
-  const handleSearch = <span class="fstat-no" title="function not covered" >async (q</span>uery: string) =&gt; {
-<span class="cstat-no" title="statement not covered" >    query = query.trim().toLocaleLowerCase()</span>
+  const handleSearch = async (query: string) =&gt; {
+    query = query.trim().toLocaleLowerCase()
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    if (query.length === 0) <span class="cstat-no" title="statement not covered" >return</span></span>
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (query.length === 0) <span class="cstat-no" title="statement not covered" >return</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    if (previousterms.includes(query)) <span class="cstat-no" title="statement not covered" >return</span></span>
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (previousTerms.includes(query)) <span class="cstat-no" title="statement not covered" >return</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    setPreviousterms([query, ...previousterms].splice(0, 8))</span>
+    setPreviousTerms([query, ...previousTerms].splice(0, 8))
 &nbsp;
-    const gifs = <span class="cstat-no" title="statement not covered" >await getGifsByQuery(query)</span>
+    const gifs = await getGifsByQuery(query)
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    setGifs(gifs)</span>
+    setGifs(gifs)
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    gifsCache.current[query] = gifs</span>
+    gifsCache.current[query] = gifs
 &nbsp;
   };
 &nbsp;
   return {
     gifs,
     handleSearch,
-    previousterms,
+    previousTerms,
     handleTermClicked,
   }
 }
@@ -202,7 +205,7 @@ export const useGifs = () =&gt; {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-23T17:55:08.636Z
+                at 2026-04-23T18:21:45.501Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>
